@@ -83,7 +83,7 @@ function drawShapes(ctx, shapes) {
     ctx.closePath();
     ctx.fill();
   });
-  ctx.drawImage(logo, 0, 0);
+  ctx.drawImage(logo, 0, 0, canvas.width, canvas.height);
 }
 
 // Define styles
