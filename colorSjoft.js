@@ -67,6 +67,7 @@ canvas.height = canvas.width;
 const logo = new Image();
 logo.src = "logo text.svg";
 const scalar = canvas.width / 100;
+logo.width = 100 * scalar;
 function drawShapes(ctx, shapes) {
   generateColors(Math.random());
   shapes.forEach((shape) => {
