@@ -59,8 +59,14 @@ function cssToHSL(cssColor) {
 
   return [h, s, l];
 }
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+canvas.width = document.body.clientWidth;
+canvas.height = canvas.width;
+
 const logo = new Image();
 logo.src = "logo text.svg";
+const scalar = canvas.width / 100;
 function drawShapes(ctx, shapes) {
   generateColors(Math.random());
   shapes.forEach((shape) => {
@@ -68,9 +74,9 @@ function drawShapes(ctx, shapes) {
     ctx.fillStyle = hslToCSS(styles[shape.class]);
     shape.points.forEach(([x, y], index) => {
       if (index === 0) {
-        ctx.moveTo(x * 5, y * 5);
+        ctx.moveTo(x * scalar, y * scalar);
       } else {
-        ctx.lineTo(x * 5, y * 5);
+        ctx.lineTo(x * scalar, y * scalar);
       }
     });
     ctx.closePath();
@@ -78,8 +84,6 @@ function drawShapes(ctx, shapes) {
   });
   ctx.drawImage(logo, 0, 0);
 }
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
 
 // Define styles
 let styles = {
